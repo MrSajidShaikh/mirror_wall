@@ -15,8 +15,7 @@ class _SearchEngineScreenState extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
     var providerTrue = Provider.of<SearchProvider>(context);
-    var providerFalse =
-    Provider.of<SearchProvider>(context, listen: false);
+    var providerFalse = Provider.of<SearchProvider>(context, listen: false);
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -73,39 +72,38 @@ class _SearchEngineScreenState extends State<SearchView> {
           preferredSize: const Size.fromHeight(50),
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 10),
-            child: Consumer<SearchProvider>(
-                builder: (context, value, child) {
-                  return TextField(
-                    controller: value.txtSearch,
-                    cursorColor: Colors.black,
-                    onSubmitted: (value) {
-                      final searchUrl = providerTrue.selectedEngineUrl + value;
-                      providerTrue.webViewController?.loadUrl(
-                        urlRequest: URLRequest(
-                          url: WebUri(searchUrl),
-                        ),
-                      );
-                      providerFalse.addToHistory(searchUrl);
-                      providerFalse.updateNavigationButtons();
-                    },
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.search),
-                      labelText: 'Search',
-                      labelStyle: const TextStyle(color: Colors.black),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Colors.black),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Colors.black,
-                          width: 1.5,
-                        ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+            child: Consumer<SearchProvider>(builder: (context, value, child) {
+              return TextField(
+                controller: value.txtSearch,
+                cursorColor: Colors.black,
+                onSubmitted: (value) {
+                  final searchUrl = providerTrue.selectedEngineUrl + value;
+                  providerTrue.webViewController?.loadUrl(
+                    urlRequest: URLRequest(
+                      url: WebUri(searchUrl),
                     ),
                   );
-                }),
+                  providerFalse.addToHistory(searchUrl);
+                  providerFalse.updateNavigationButtons();
+                },
+                decoration: InputDecoration(
+                  prefixIcon: const Icon(Icons.search),
+                  labelText: 'Search',
+                  labelStyle: const TextStyle(color: Colors.black),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: const BorderSide(color: Colors.black),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                      color: Colors.black,
+                      width: 1.5,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              );
+            }),
           ),
         ),
       ),
@@ -116,27 +114,26 @@ class _SearchEngineScreenState extends State<SearchView> {
               child: LinearProgressIndicator(),
             ),
           Expanded(
-            child: Consumer<SearchProvider>(
-                builder: (context, value, child) {
-                  return InAppWebView(
-                    initialUrlRequest: URLRequest(
-                      url: WebUri(value.selectedEngineUrl),
-                    ),
-                    onWebViewCreated: (controller) {
-                      value.webViewController = controller;
-                    },
-                    onLoadStop: (controller, url) async {
-                      if (url != null) {
-                        value.setLoader(false);
-                        await value.updateNavigationButtons();
-                      }
-                    },
-                    onLoadStart: (controller, url) {
-                      value.addToHistory(url.toString());
-                      providerFalse.setLoader(true);
-                    },
-                  );
-                }),
+            child: Consumer<SearchProvider>(builder: (context, value, child) {
+              return InAppWebView(
+                initialUrlRequest: URLRequest(
+                  url: WebUri(value.selectedEngineUrl),
+                ),
+                onWebViewCreated: (controller) {
+                  value.webViewController = controller;
+                },
+                onLoadStop: (controller, url) async {
+                  if (url != null) {
+                    value.setLoader(false);
+                    await value.updateNavigationButtons();
+                  }
+                },
+                onLoadStart: (controller, url) {
+                  value.addToHistory(url.toString());
+                  providerFalse.setLoader(true);
+                },
+              );
+            }),
           ),
           _buildNavigationControls(providerTrue, providerFalse),
         ],
@@ -158,7 +155,7 @@ class _SearchEngineScreenState extends State<SearchView> {
           IconButton(
             icon: const Icon(Icons.arrow_forward),
             onPressed:
-            providerTrue.canGoForward ? providerFalse.goForward : null,
+                providerTrue.canGoForward ? providerFalse.goForward : null,
           ),
           IconButton(
             onPressed: () {

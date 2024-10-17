@@ -32,19 +32,19 @@ class SearchProvider with ChangeNotifier {
       'name': 'Google',
       'url': 'https://www.google.com/search?q=',
       'logo':
-      'https://www.pngplay.com/wp-content/uploads/13/Google-Logo-PNG-Photo-Image.png',
+          'https://www.pngplay.com/wp-content/uploads/13/Google-Logo-PNG-Photo-Image.png',
     },
     {
       'name': 'Yahoo',
       'url': 'https://search.yahoo.com/search?p=',
       'logo':
-      'https://s.yimg.com/ny/api/res/1.2/vlvd6fw1UHI9T_3GaNPzDw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02OTI-/https://s.yimg.com/os/creatr-uploaded-images/2019-09/a929b8f0-dd65-11e9-bffe-b90463fd5188',
+          'https://s.yimg.com/ny/api/res/1.2/vlvd6fw1UHI9T_3GaNPzDw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02OTI-/https://s.yimg.com/os/creatr-uploaded-images/2019-09/a929b8f0-dd65-11e9-bffe-b90463fd5188',
     },
     {
       'name': 'Bing',
       'url': 'https://www.bing.com/search?q=',
       'logo':
-      'https://www.logodesignlove.com/images/evolution/old-bing-logo-01.jpg',
+          'https://www.logodesignlove.com/images/evolution/old-bing-logo-01.jpg',
     },
     {
       'name': 'Yandex',
@@ -55,7 +55,7 @@ class SearchProvider with ChangeNotifier {
       'name': 'DuckDuckGo',
       'url': 'https://duckduckgo.com/?q=',
       'logo':
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHsuwQaMWi8wu7v5yci7aVVg2nRLgRqco49w&s',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHsuwQaMWi8wu7v5yci7aVVg2nRLgRqco49w&s',
     },
   ];
 
@@ -64,8 +64,7 @@ class SearchProvider with ChangeNotifier {
 
   void makeListOfObject() {
     for (int i = 0; i < searchEngines.length; i++) {
-      SearchModal searchEngineModal =
-      SearchModal.fromMap(searchEngines[i]);
+      SearchModal searchEngineModal = SearchModal.fromMap(searchEngines[i]);
       searchEngineList.add(searchEngineModal);
     }
   }

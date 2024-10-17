@@ -10,8 +10,7 @@ class HistoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var providerTrue = Provider.of<SearchProvider>(context);
-    var providerFalse =
-    Provider.of<SearchProvider>(context, listen: false);
+    var providerFalse = Provider.of<SearchProvider>(context, listen: false);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -42,16 +41,15 @@ class HistoryView extends StatelessWidget {
               providerFalse.addUrlToController(url);
               Navigator.pop(context);
             },
-            trailing: Consumer<SearchProvider>(
-                builder: (context, value, child) {
-                  return IconButton(
-                    onPressed: () {
-                      value.deleteHistory(index);
-                    },
-                    icon: const Icon(Icons.delete),
-                  );
-                }
-            ),
+            trailing:
+                Consumer<SearchProvider>(builder: (context, value, child) {
+              return IconButton(
+                onPressed: () {
+                  value.deleteHistory(index);
+                },
+                icon: const Icon(Icons.delete),
+              );
+            }),
           );
         },
       ),

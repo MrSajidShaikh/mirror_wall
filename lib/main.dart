@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'Provider/search_provider.dart';
 import 'View/search_view.dart';
 

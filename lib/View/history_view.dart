@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:provider/provider.dart';
+
 import '../Provider/search_provider.dart';
 
 class HistoryView extends StatelessWidget {

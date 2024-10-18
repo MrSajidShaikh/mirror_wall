@@ -21,12 +21,6 @@ class SearchProvider with ChangeNotifier {
     notifyListeners();
   }
 
-// https://in.search.yahoo.com/search?q=flutter
-// https://duckduckgo.com/?t=h_&q=flutter&ia=web
-// https://yandex.com/search/?text=flutter&lr=10555
-// https://www.bing.com/search?q=flutter
-
-  // Search engine options
   List<Map<String, String>> searchEngines = [
     {
       'name': 'Google',

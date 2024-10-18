@@ -39,7 +39,7 @@ class _SearchEngineScreenState extends State<SearchView> {
             color: Colors.white,
             onSelected: (Map<String, String> engine) {
               providerTrue.setSearchEngine(
-                  engine['url']!); // Update the search engine URL
+                  engine['url']!);
               providerTrue.webViewController!.loadUrl(
                 urlRequest: URLRequest(
                   url: WebUri(engine['url']!),

@@ -53,7 +53,6 @@ class SearchProvider with ChangeNotifier {
     },
   ];
 
-  // making list of object for code simplicity
   List<SearchModal> searchEngineList = [];
 
   void makeListOfObject() {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../Modal/search_modal.dart';
 
 class SearchProvider with ChangeNotifier {
